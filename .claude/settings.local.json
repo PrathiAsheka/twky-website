@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(where python3 *)",
+      "Bash(python -c \"import pypdf; print\\('ok'\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -c ' *)",
+      "Bash(python -m pip install pdfplumber --quiet)",
+      "Bash(python -c \"import pypdfium2; print\\('ok'\\)\")",
+      "Bash(mkdir -p \"/c/Users/MSI/AppData/Local/Temp/claude/E--INTERN---TWKY-twky-website/e2e3ab5f-243b-4823-8c76-9d9dbc2ebfd6/scratchpad/pdf_pages\")",
+      "Bash(python -m pip install python-docx --quiet)",
+      "Bash(export PYTHONIOENCODING=utf-8)",
+      "Read(//c/Users/MSI/AppData/Local/Temp/claude/E--INTERN---TWKY-twky-website/e2e3ab5f-243b-4823-8c76-9d9dbc2ebfd6/scratchpad/**)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --app --eslint --src-dir=false --import-alias \"@/*\" --use-npm --no-turbopack)"
+    ]
+  }
+}
