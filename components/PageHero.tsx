@@ -1,18 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 import { fadeUpContainer, fadeUpItem } from "@/lib/motion";
 
 interface PageHeroProps {
   eyebrow: string;
   title: string;
   description?: string;
+  children?: ReactNode;
 }
 
 export default function PageHero({
   eyebrow,
   title,
   description,
+  children,
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-black">
@@ -44,6 +47,12 @@ export default function PageHero({
             >
               {description}
             </motion.p>
+          )}
+
+          {children && (
+            <motion.div variants={fadeUpItem} className="mt-8">
+              {children}
+            </motion.div>
           )}
         </motion.div>
       </div>

@@ -35,13 +35,13 @@ export default function StatGrid({ title, subtitle, stats }: StatGridProps) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 gap-10 border border-line bg-surface p-8 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-line sm:p-10">
+      <div className="grid grid-cols-1 gap-10 border border-line bg-surface p-8 sm:grid-cols-3 sm:gap-10 sm:p-10">
         {stats.map((stat) => (
-          <div key={stat.label} className="flex flex-col gap-2 sm:px-8 first:sm:pl-0">
+          <div key={stat.label} className="flex flex-col gap-2">
             <span className="text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-white">
               <AnimatedCounter value={stat.value} suffix={stat.suffix} />
             </span>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">
+            <span className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
               {stat.label}
             </span>
             {stat.description && (

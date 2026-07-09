@@ -100,16 +100,16 @@ export default function PaidMediaPage() {
       </Section>
 
       <Section eyebrow="Performance Driven Advertising">
-        <div className="flex flex-col divide-y divide-line border-t border-line">
+        <div className="flex flex-col gap-10">
           {PERFORMANCE_PILLARS.map((pillar, index) => (
             <div
               key={pillar.title}
-              className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-300 hover:bg-white/[0.02] lg:grid-cols-[auto_1fr_2fr] lg:items-start lg:gap-10"
+              className="group grid grid-cols-1 gap-4 rounded-lg transition-colors duration-300 hover:bg-white/[0.02] lg:grid-cols-[auto_1fr_2fr] lg:items-start lg:gap-10"
             >
               <span className="text-xs font-semibold tracking-[0.2em] text-white/30 transition-colors duration-300 group-hover:text-white/60">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-lg font-bold tracking-tight text-white">
+              <h3 className="text-xl font-bold tracking-tight text-white">
                 {pillar.title}
               </h3>
               <p className="max-w-xl text-sm leading-relaxed text-white/55">

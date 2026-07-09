@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Download } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import WireframePlaceholder from "@/components/WireframePlaceholder";
@@ -19,9 +20,18 @@ export default function AboutPage() {
         eyebrow="About TWKY"
         title="Setting a higher standard in modern brand communication."
         description="To position TWKY Branding as a leading digital marketing partner in Sri Lanka, known for building distinctive brands, elevating digital presence, and setting a higher standard in modern brand communication."
-      />
+      >
+        <a
+          href="/TWKY-Digital-Portfolio.pdf"
+          download="TWKY-Digital-Portfolio.pdf"
+          className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white/80 transition-all duration-300 hover:border-white hover:text-white hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+        >
+          <Download className="h-4 w-4" aria-hidden />
+          Download Digital Portfolio
+        </a>
+      </PageHero>
 
-      <Section eyebrow="Who We Are">
+      <Section id="who-we-are" eyebrow="Who We Are">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <p className="max-w-xl text-[clamp(1.5rem,2.6vw,2.25rem)] font-semibold leading-[1.3] tracking-tight text-white">
             We are a results-driven digital growth partner focused on
@@ -33,10 +43,10 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section eyebrow="Vision & Mission">
+      <Section id="vision-mission" eyebrow="Vision & Mission">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-          <div className="group border-t border-line pt-8 transition-colors duration-300 hover:border-white/40">
-            <h3 className="text-xs font-medium uppercase tracking-[0.25em] text-white/40 transition-colors duration-300 group-hover:text-white/60">
+          <div>
+            <h3 className="text-2xl font-bold tracking-tight text-white">
               Vision
             </h3>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-white/70">
@@ -46,8 +56,8 @@ export default function AboutPage() {
               modern brand communication.
             </p>
           </div>
-          <div className="group border-t border-line pt-8 transition-colors duration-300 hover:border-white/40">
-            <h3 className="text-xs font-medium uppercase tracking-[0.25em] text-white/40 transition-colors duration-300 group-hover:text-white/60">
+          <div>
+            <h3 className="text-2xl font-bold tracking-tight text-white">
               Mission
             </h3>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-white/70">
@@ -60,7 +70,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section eyebrow="What We Do">
+      <Section id="what-we-do" eyebrow="What We Do">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {WHAT_WE_DO.map((item) => (
             <Card key={item.title} {...item} />

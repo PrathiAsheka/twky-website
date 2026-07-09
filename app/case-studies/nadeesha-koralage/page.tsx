@@ -92,13 +92,13 @@ export default function NadeeshaKoralagePage() {
       </Section>
 
       <Section eyebrow="Audience Reach">
-        <div className="grid grid-cols-2 gap-10 border-t border-line pt-10 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
           {AUDIENCE_REACH.map((stat) => (
             <div key={stat.label} className="group flex flex-col gap-2">
               <span className="text-[clamp(1.75rem,3vw,2.75rem)] font-bold leading-none tracking-tight text-white transition-transform duration-300 group-hover:-translate-y-1">
                 <AnimatedCounter value={stat.value} suffix="+" />
               </span>
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/45 transition-colors duration-300 group-hover:text-white/70">
+              <span className="text-sm font-medium uppercase tracking-[0.2em] text-white/70 transition-colors duration-300 group-hover:text-white">
                 {stat.label}
               </span>
             </div>
@@ -121,16 +121,14 @@ export default function NadeeshaKoralagePage() {
       </Section>
 
       <Section eyebrow="What Made This Growth Possible">
-        <ul className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           {GROWTH_PRINCIPLES.map((item) => (
             <li
               key={item}
-              className="group flex items-start gap-3 border-t border-line pt-4 text-sm text-white/60 transition-colors duration-300 hover:border-white/40"
+              className="group flex items-start gap-3 text-base font-medium text-white/85 transition-colors duration-300 hover:text-white"
             >
-              <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40 transition-colors duration-300 group-hover:bg-white" />
-              <span className="transition-colors duration-300 group-hover:text-white">
-                {item}
-              </span>
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50 transition-colors duration-300 group-hover:bg-white" />
+              <span>{item}</span>
             </li>
           ))}
         </ul>

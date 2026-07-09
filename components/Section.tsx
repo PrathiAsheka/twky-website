@@ -8,15 +8,20 @@ interface SectionProps {
   eyebrow: string;
   children: ReactNode;
   className?: string;
+  id?: string;
 }
 
 export default function Section({
   eyebrow,
   children,
   className = "",
+  id,
 }: SectionProps) {
   return (
-    <section className={`relative border-t border-line bg-black ${className}`}>
+    <section
+      id={id}
+      className={`relative scroll-mt-24 border-t border-line bg-black ${className}`}
+    >
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <motion.div
           variants={fadeUpContainer}

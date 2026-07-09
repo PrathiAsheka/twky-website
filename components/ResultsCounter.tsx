@@ -38,17 +38,17 @@ export default function ResultsCounter() {
             Facebook Performance — Nadeesha Koralage
           </motion.p>
 
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-line">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
             {STATS.map((stat) => (
               <motion.div
                 key={stat.label}
                 variants={fadeUpItem}
-                className="flex flex-col gap-3 sm:px-10"
+                className="flex flex-col gap-3"
               >
                 <span className="text-[clamp(3rem,7vw,5.5rem)] font-bold leading-none tracking-tight text-white">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </span>
-                <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
+                <span className="text-sm font-medium uppercase tracking-[0.25em] text-white/70">
                   {stat.label}
                 </span>
               </motion.div>

@@ -79,16 +79,14 @@ export default function ExecutionPage() {
       </Section>
 
       <Section eyebrow="Compulsory Suite — Full Scope">
-        <ul className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
           {COMPULSORY_TASKS.map((task) => (
             <li
               key={task}
-              className="group flex items-start gap-3 border-t border-line pt-4 text-sm text-white/60 transition-colors duration-300 hover:border-white/40"
+              className="group flex items-start gap-3 text-base font-medium text-white/85 transition-colors duration-300 hover:text-white"
             >
-              <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40 transition-colors duration-300 group-hover:bg-white" />
-              <span className="transition-colors duration-300 group-hover:text-white">
-                {task}
-              </span>
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50 transition-colors duration-300 group-hover:bg-white" />
+              <span>{task}</span>
             </li>
           ))}
         </ul>

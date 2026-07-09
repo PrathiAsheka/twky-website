@@ -43,7 +43,7 @@ const ADVANCED_SERVICES = [
 ];
 
 const listItemClasses =
-  "group flex items-start gap-3 border-t border-line pt-4 text-sm text-white/60 transition-colors duration-300 hover:border-white/40";
+  "group flex items-start gap-3 text-base font-medium text-white/85 transition-colors duration-300 hover:text-white";
 
 export default function AdvancedConsultingPage() {
   return (
@@ -55,16 +55,16 @@ export default function AdvancedConsultingPage() {
       />
 
       <Section eyebrow="Strategic Advisory">
-        <div className="flex flex-col divide-y divide-line border-t border-line">
+        <div className="flex flex-col gap-10">
           {ADVISORY_PILLARS.map((pillar, index) => (
             <div
               key={pillar.title}
-              className="group grid grid-cols-1 gap-4 py-8 transition-colors duration-300 hover:bg-white/[0.02] lg:grid-cols-[auto_1fr_2fr] lg:items-start lg:gap-10"
+              className="group grid grid-cols-1 gap-4 rounded-lg transition-colors duration-300 hover:bg-white/[0.02] lg:grid-cols-[auto_1fr_2fr] lg:items-start lg:gap-10"
             >
               <span className="text-xs font-semibold tracking-[0.2em] text-white/30 transition-colors duration-300 group-hover:text-white/60">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-lg font-bold tracking-tight text-white">
+              <h3 className="text-xl font-bold tracking-tight text-white">
                 {pillar.title}
               </h3>
               <p className="max-w-xl text-sm leading-relaxed text-white/55">
@@ -76,26 +76,22 @@ export default function AdvancedConsultingPage() {
       </Section>
 
       <Section eyebrow="Branding & Consulting">
-        <ul className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
           {CONSULTING_SCOPE.map((item) => (
             <li key={item} className={listItemClasses}>
-              <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40 transition-colors duration-300 group-hover:bg-white" />
-              <span className="transition-colors duration-300 group-hover:text-white">
-                {item}
-              </span>
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50 transition-colors duration-300 group-hover:bg-white" />
+              <span>{item}</span>
             </li>
           ))}
         </ul>
       </Section>
 
       <Section eyebrow="Additional / Advanced Services">
-        <ul className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
           {ADVANCED_SERVICES.map((item) => (
             <li key={item} className={listItemClasses}>
-              <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40 transition-colors duration-300 group-hover:bg-white" />
-              <span className="transition-colors duration-300 group-hover:text-white">
-                {item}
-              </span>
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50 transition-colors duration-300 group-hover:bg-white" />
+              <span>{item}</span>
             </li>
           ))}
         </ul>
