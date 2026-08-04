@@ -93,7 +93,7 @@ export default function Footer() {
 
       {/* Legal row */}
       <div className="border-t border-line">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-center text-xs text-white/35 sm:flex-row sm:text-left lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 pb-28 pt-6 text-center text-xs text-white/35 sm:flex-row sm:pb-6 sm:text-left lg:px-10">
           <p>&copy; {year} They Will Know You (TWKY) Branding. All rights reserved.</p>
           <p>This site and its contents are confidential and proprietary to TWKY.</p>
         </div>

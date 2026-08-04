@@ -6,8 +6,6 @@ import { fadeUpItem } from "@/lib/motion";
 interface TeamCardProps {
   name: string;
   role: string;
-  academics: string[];
-  bio?: string;
 }
 
 function getInitials(name: string) {
@@ -19,7 +17,7 @@ function getInitials(name: string) {
     .toUpperCase();
 }
 
-export default function TeamCard({ name, role, academics, bio }: TeamCardProps) {
+export default function TeamCard({ name, role }: TeamCardProps) {
   return (
     <motion.div
       variants={fadeUpItem}
@@ -39,16 +37,6 @@ export default function TeamCard({ name, role, academics, bio }: TeamCardProps) 
           {role}
         </span>
       </div>
-
-      <ul className="flex flex-col gap-1 text-sm text-white/50">
-        {academics.map((line) => (
-          <li key={line}>{line}</li>
-        ))}
-      </ul>
-
-      {bio && (
-        <p className="text-sm leading-relaxed text-white/60">{bio}</p>
-      )}
     </motion.div>
   );
 }

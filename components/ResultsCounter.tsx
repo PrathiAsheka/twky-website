@@ -21,13 +21,9 @@ export default function ResultsCounter() {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <motion.div
-            variants={fadeUpItem}
-            className="mb-6 flex items-center gap-4"
-          >
-            <span className="h-px w-12 bg-white/30" />
+          <motion.div variants={fadeUpItem} className="mb-6 flex items-center">
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
-              03 — Proven Results
+              Proven Results
             </span>
           </motion.div>
 

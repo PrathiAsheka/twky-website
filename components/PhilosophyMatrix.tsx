@@ -15,11 +15,10 @@ export default function PhilosophyMatrix() {
         >
           <motion.div
             variants={fadeUpItem}
-            className="mb-12 flex items-center gap-4 lg:mb-16"
+            className="mb-12 flex items-center lg:mb-16"
           >
-            <span className="h-px w-12 bg-white/30" />
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
-              01 — Philosophy
+              Philosophy
             </span>
           </motion.div>
 

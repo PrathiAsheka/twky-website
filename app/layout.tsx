@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PreloaderProvider from "@/components/PreloaderProvider";
+import Chatbot from "@/components/Chatbot";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -28,6 +29,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <Chatbot />
         </PreloaderProvider>
       </body>
     </html>

@@ -38,12 +38,6 @@ const FEATURED = [
     tag: "Authority Driven Personal Brand",
     stat: "11Mn+ Facebook video views",
   },
-  {
-    title: "Ceylon Wedding Planners",
-    href: "/case-studies/ceylon-wedding-planners",
-    tag: "Luxury Brand Positioning",
-    stat: "500K+ monthly views",
-  },
 ];
 
 export default function CaseStudiesPage() {
@@ -64,12 +58,12 @@ export default function CaseStudiesPage() {
       </Section>
 
       <Section eyebrow="Featured Work">
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6">
           {FEATURED.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group flex flex-col justify-between border border-line bg-surface p-10 transition-colors duration-300 hover:border-white hover:bg-white lg:min-h-[240px]"
+              className="group flex max-w-2xl flex-col justify-between border border-line bg-surface p-10 transition-colors duration-300 hover:border-white hover:bg-white lg:min-h-[240px]"
             >
               <div>
                 <span className="text-xs font-medium uppercase tracking-[0.2em] text-white/40 transition-colors duration-300 group-hover:text-black/50">

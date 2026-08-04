@@ -23,11 +23,7 @@ export default function PageHero({
 
       <div className="mx-auto max-w-7xl px-6 pb-16 pt-32 lg:px-10 lg:pb-20 lg:pt-40">
         <motion.div variants={fadeUpContainer} initial="hidden" animate="show">
-          <motion.div
-            variants={fadeUpItem}
-            className="mb-8 flex items-center gap-4"
-          >
-            <span className="h-px w-12 bg-white/30" />
+          <motion.div variants={fadeUpItem} className="mb-8 flex items-center">
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
               {eyebrow}
             </span>

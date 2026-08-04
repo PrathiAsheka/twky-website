@@ -25,7 +25,6 @@ export const NAV_LINKS: NavLink[] = [
     href: "/case-studies",
     children: [
       { label: "Nadeesha Koralage", href: "/case-studies/nadeesha-koralage" },
-      { label: "Ceylon Wedding Planners", href: "/case-studies/ceylon-wedding-planners" },
     ],
   },
   {

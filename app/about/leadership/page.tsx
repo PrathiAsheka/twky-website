@@ -9,37 +9,13 @@ export const metadata: Metadata = {
 };
 
 const TEAM = [
+  { name: "Chamodya Maduranga Kaldera", role: "Co-Founder" },
+  { name: "Saduka Sachintha", role: "Co-Founder" },
+  { name: "Resandu Samadith", role: "Executive — Operations & Strategy" },
+  { name: "Disara Aluthge", role: "Executive — Business Development" },
   {
-    name: "Chamodya Maduranga Kaldera",
-    role: "Co-Founder",
-    academics: [
-      "BSc. Business Administration — USJ",
-      "MSc. Strategic Marketing — Queen Margaret University",
-    ],
-    bio: "7+ years managing paid media across fitness, leisure, ecommerce, and FMCG. Worked with F45, Anytime Fitness, BFT, BANX, and Ceilao Villas.",
-  },
-  {
-    name: "Saduka Sachintha",
-    role: "Co-Founder",
-    academics: [
-      "BSc. Business Administration — USJ",
-      "MSc. Strategic Marketing — Queen Margaret University",
-    ],
-    bio: "Experience across Nestomalt, Milo, Nescafe, Maggie, F45, BFT, and Anytime Fitness. Lecturer in Digital Marketing at APIDM and the University of Sri Jayewardenapura.",
-  },
-  {
-    name: "Resandu Samadith",
-    role: "Executive — Operations & Strategy",
-    academics: ["BSc Project Management Undergraduate — NSBM"],
-    bio: "Leads execution, client coordination, and strategic oversight.",
-  },
-  {
-    name: "Disara Aluthge",
-    role: "Executive — Business Development",
-    academics: [
-      "BSc Information Systems Undergraduate — KDU",
-      "Diploma in Professional and Digital Marketing — CIM",
-    ],
+    name: "Prathibha Dissanayake",
+    role: "Intern — IT & Digital Marketing",
   },
 ];
 

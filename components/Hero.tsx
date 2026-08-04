@@ -24,7 +24,7 @@ const item: Variants = {
   },
 };
 
-const CLIENTS = ["Nadeesha Koralage", "Ceylon Wedding Planners"];
+const CLIENTS = ["Nadeesha Koralage"];
 
 export default function Hero() {
   const isPreloading = usePreloader();
@@ -121,11 +121,11 @@ export default function Hero() {
           <p className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
             Trusted By
           </p>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:auto-cols-fr">
+          <div className="flex flex-wrap gap-4">
             {CLIENTS.map((client) => (
               <div
                 key={client}
-                className="flex items-center justify-center border border-white/10 px-4 py-6 text-center text-sm font-semibold uppercase tracking-wide text-white/45 transition-colors duration-300 hover:border-white/30 hover:text-white"
+                className="flex items-center justify-center border border-white/10 px-6 py-6 text-center text-sm font-semibold uppercase tracking-wide text-white/45 transition-colors duration-300 hover:border-white/30 hover:text-white"
               >
                 {client}
               </div>

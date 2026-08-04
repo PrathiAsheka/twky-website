@@ -1,34 +1,49 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { BarChart3, Copy, Share2, Target, type LucideIcon } from "lucide-react";
 import { fadeUpContainer, fadeUpItem } from "@/lib/motion";
 
-const PILLARS = [
+const PILLARS: {
+  index: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
   {
     index: "01",
     title: "Strategy",
     description: "Strategy-first thinking guides priorities.",
+    icon: Target,
   },
   {
     index: "02",
     title: "Content",
     description: "Platform-native execution tailored per channel.",
+    icon: Copy,
   },
   {
     index: "03",
     title: "Distribution",
     description: "Multi-channel publishing connects audiences.",
+    icon: Share2,
   },
   {
     index: "04",
     title: "Optimisation",
     description: "Data-backed decisions refine performance.",
+    icon: BarChart3,
   },
 ];
 
 const cardVariants: Variants = {
   rest: { backgroundColor: "#0D0D0D", borderColor: "#262626" },
   hover: { backgroundColor: "#FFFFFF", borderColor: "#FFFFFF" },
+};
+
+const iconVariants: Variants = {
+  rest: { color: "rgba(255,255,255,0.7)" },
+  hover: { color: "rgba(0,0,0,0.6)" },
 };
 
 const numberVariants: Variants = {
@@ -54,7 +69,7 @@ interface GrowthPipelineProps {
 }
 
 export default function GrowthPipeline({
-  eyebrow = "02 — The Growth System",
+  eyebrow = "The Growth System",
   heading = "Every brand we work with benefits from a structured, repeatable system, not guesswork.",
 }: GrowthPipelineProps) {
   return (
@@ -68,9 +83,8 @@ export default function GrowthPipeline({
         >
           <motion.div
             variants={fadeUpItem}
-            className="mb-12 flex items-center gap-4 lg:mb-16"
+            className="mb-12 flex items-center lg:mb-16"
           >
-            <span className="h-px w-12 bg-white/30" />
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
               {eyebrow}
             </span>
@@ -92,8 +106,12 @@ export default function GrowthPipeline({
                   animate="rest"
                   variants={cardVariants}
                   transition={hoverTransition}
-                  className="flex h-full cursor-default flex-col justify-between border p-8 lg:min-h-[280px]"
+                  className="flex h-full cursor-default flex-col gap-6 border p-8 lg:min-h-[280px]"
                 >
+                  <motion.div variants={iconVariants} transition={hoverTransition}>
+                    <pillar.icon className="h-9 w-9" strokeWidth={1.5} />
+                  </motion.div>
+
                   <motion.span
                     variants={numberVariants}
                     transition={hoverTransition}
@@ -102,7 +120,7 @@ export default function GrowthPipeline({
                     {pillar.index}
                   </motion.span>
 
-                  <div className="mt-10 lg:mt-0">
+                  <div>
                     <motion.h3
                       variants={titleVariants}
                       transition={hoverTransition}

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Download } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
-import WireframePlaceholder from "@/components/WireframePlaceholder";
 import MagneticButton from "@/components/MagneticButton";
 import Card from "@/components/Card";
 import { WHAT_WE_DO } from "@/lib/whatWeDo";
@@ -39,7 +39,16 @@ export default function AboutPage() {
             We combine strategy, creativity, and performance marketing to
             build brands that scale.
           </p>
-          <WireframePlaceholder label="TWKY — Brand Sculpture" />
+          <div className="relative flex aspect-[4/3] w-full items-center justify-center border border-line bg-surface">
+            <Image
+              src="/logo.jpeg"
+              alt="They Will Know You"
+              width={280}
+              height={280}
+              unoptimized
+              className="h-40 w-40 object-contain sm:h-56 sm:w-56"
+            />
+          </div>
         </div>
       </Section>
 
