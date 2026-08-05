@@ -4,21 +4,15 @@ import {
   Award,
   Clock,
   CircleCheck,
-  DollarSign,
   Eye,
   Flame,
   MessageCircle,
-  MousePointerClick,
-  Radio,
-  Target,
   TrendingUp,
-  Zap,
 } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import StatGrid from "@/components/StatGrid";
 import StatCard from "@/components/StatCard";
-import SplitBar from "@/components/SplitBar";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
 export const metadata: Metadata = {
@@ -29,36 +23,11 @@ export const metadata: Metadata = {
 
 const iconClass = "h-6 w-6";
 
-const FACEBOOK_VIEWS = [
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "120.6M", label: "Total Views" },
-  { icon: <Radio className={iconClass} strokeWidth={1.5} />, value: "103.1M", label: "Organic Views" },
-  { icon: <Zap className={iconClass} strokeWidth={1.5} />, value: "17.6M", label: "Paid Views" },
-];
-
-const FACEBOOK_SPLIT = { organicPct: 85.5, paidPct: 14.6 };
-
-const INSTAGRAM_VIEWS = [
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "13.9M", label: "Total Views" },
-  { icon: <Radio className={iconClass} strokeWidth={1.5} />, value: "13.7M", label: "Organic Views" },
-  { icon: <Zap className={iconClass} strokeWidth={1.5} />, value: "264K", label: "Paid Views" },
-];
-
-const INSTAGRAM_SPLIT = { organicPct: 98.6, paidPct: 1.9 };
-
-const TIKTOK_VIEWS = [
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "80.1M", label: "Total Views" },
-  { icon: <Award className={iconClass} strokeWidth={1.5} />, value: "52", label: "Videos with 500K+ Views" },
-];
-
-const YOUTUBE_VIEWS = [
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "4.5M", label: "Total Views" },
-];
-
-const PAID_PERFORMANCE = [
-  { icon: <DollarSign className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Spend", value: "$1,953.98" },
-  { icon: <Eye className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Impressions", value: "14,593,701" },
-  { icon: <Target className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Reach", value: "14,593,701" },
-  { icon: <MousePointerClick className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Clicks", value: "72,246" },
+const PLATFORM_VIEWS = [
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "120.6M", label: "Facebook" },
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "13.9M", label: "Instagram" },
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "80.1M", label: "TikTok" },
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "4.5M", label: "YouTube" },
 ];
 
 const GROWTH_PRINCIPLES = [
@@ -73,6 +42,7 @@ const GRID_COLS_BY_COUNT: Record<number, string> = {
   1: "sm:grid-cols-1",
   2: "sm:grid-cols-2",
   3: "sm:grid-cols-3",
+  4: "sm:grid-cols-2 lg:grid-cols-4",
 };
 
 function PlatformStatGrid({
@@ -176,43 +146,8 @@ export default function NadeeshaKoralagePage() {
         </div>
       </Section>
 
-      <Section eyebrow="Facebook Performance Results — 2025">
-        <PlatformStatGrid stats={FACEBOOK_VIEWS} />
-        <div className="mt-8 max-w-md">
-          <SplitBar {...FACEBOOK_SPLIT} />
-        </div>
-      </Section>
-
-      <Section eyebrow="Instagram Performance Results — 2025">
-        <PlatformStatGrid stats={INSTAGRAM_VIEWS} />
-        <div className="mt-8 max-w-md">
-          <SplitBar {...INSTAGRAM_SPLIT} />
-        </div>
-      </Section>
-
-      <Section eyebrow="TikTok Performance Results — 2025">
-        <PlatformStatGrid stats={TIKTOK_VIEWS} />
-      </Section>
-
-      <Section eyebrow="YouTube Performance Results — 2025">
-        <PlatformStatGrid stats={YOUTUBE_VIEWS} />
-      </Section>
-
-      <Section eyebrow="Paid Campaign Performance — 2025">
-        <div className="divide-y divide-line border border-line bg-surface">
-          {PAID_PERFORMANCE.map((row) => (
-            <div
-              key={row.label}
-              className="flex items-center justify-between gap-6 px-6 py-5 sm:px-8"
-            >
-              <span className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-white">
-                {row.icon}
-                {row.label}
-              </span>
-              <span className="text-sm text-white/60">{row.value}</span>
-            </div>
-          ))}
-        </div>
+      <Section eyebrow="Total Views by Platform — 2025">
+        <PlatformStatGrid stats={PLATFORM_VIEWS} />
       </Section>
 
       <Section eyebrow="What Made This Growth Possible">
