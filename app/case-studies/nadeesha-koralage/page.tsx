@@ -1,7 +1,25 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
+import {
+  Award,
+  Clock,
+  CircleCheck,
+  DollarSign,
+  Eye,
+  Flame,
+  MessageCircle,
+  MousePointerClick,
+  Radio,
+  Target,
+  TrendingUp,
+  Zap,
+} from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import StatGrid from "@/components/StatGrid";
+import StatCard from "@/components/StatCard";
+import SplitBar from "@/components/SplitBar";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export const metadata: Metadata = {
   title: "Nadeesha Koralage Case Study — They Will Know You",
@@ -9,30 +27,38 @@ export const metadata: Metadata = {
     "Authority Driven Personal Brand — full ecosystem social media growth focused on authority, reach, and consistency.",
 };
 
+const iconClass = "h-6 w-6";
+
 const FACEBOOK_VIEWS = [
-  { value: "120.6M", label: "Total Views" },
-  { value: "103.1M", label: "Organic Views" },
-  { value: "17.6M", label: "Paid Views" },
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "120.6M", label: "Total Views" },
+  { icon: <Radio className={iconClass} strokeWidth={1.5} />, value: "103.1M", label: "Organic Views" },
+  { icon: <Zap className={iconClass} strokeWidth={1.5} />, value: "17.6M", label: "Paid Views" },
 ];
+
+const FACEBOOK_SPLIT = { organicPct: 85.5, paidPct: 14.6 };
 
 const INSTAGRAM_VIEWS = [
-  { value: "13.9M", label: "Total Views" },
-  { value: "13.7M", label: "Organic Views" },
-  { value: "264K", label: "Paid Views" },
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "13.9M", label: "Total Views" },
+  { icon: <Radio className={iconClass} strokeWidth={1.5} />, value: "13.7M", label: "Organic Views" },
+  { icon: <Zap className={iconClass} strokeWidth={1.5} />, value: "264K", label: "Paid Views" },
 ];
+
+const INSTAGRAM_SPLIT = { organicPct: 98.6, paidPct: 1.9 };
 
 const TIKTOK_VIEWS = [
-  { value: "80.1M", label: "Total Views" },
-  { value: "52", label: "Videos with 500K+ Views" },
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "80.1M", label: "Total Views" },
+  { icon: <Award className={iconClass} strokeWidth={1.5} />, value: "52", label: "Videos with 500K+ Views" },
 ];
 
-const YOUTUBE_VIEWS = [{ value: "4.5M", label: "Total Views" }];
+const YOUTUBE_VIEWS = [
+  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "4.5M", label: "Total Views" },
+];
 
 const PAID_PERFORMANCE = [
-  { label: "Spend", value: "$1,953.98" },
-  { label: "Impressions", value: "14,593,701" },
-  { label: "Reach", value: "14,593,701" },
-  { label: "Clicks", value: "72,246" },
+  { icon: <DollarSign className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Spend", value: "$1,953.98" },
+  { icon: <Eye className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Impressions", value: "14,593,701" },
+  { icon: <Target className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Reach", value: "14,593,701" },
+  { icon: <MousePointerClick className="h-4 w-4 text-white/40" strokeWidth={1.5} />, label: "Clicks", value: "72,246" },
 ];
 
 const GROWTH_PRINCIPLES = [
@@ -49,31 +75,22 @@ const GRID_COLS_BY_COUNT: Record<number, string> = {
   3: "sm:grid-cols-3",
 };
 
-function StatCardsRow({
+function PlatformStatGrid({
   stats,
 }: {
-  stats: { value: string; label: string; description?: string }[];
+  stats: { icon: ReactNode; value: string; label: string }[];
 }) {
   const gridCols = GRID_COLS_BY_COUNT[stats.length] ?? "sm:grid-cols-3";
 
   return (
-    <div
-      className={`grid grid-cols-1 gap-10 border border-line bg-surface p-8 sm:gap-10 sm:p-10 ${gridCols}`}
-    >
+    <div className={`grid grid-cols-1 gap-4 ${gridCols}`}>
       {stats.map((stat) => (
-        <div key={stat.label} className="flex flex-col gap-2">
-          <span className="text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-white">
-            {stat.value}
-          </span>
-          <span className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
-            {stat.label}
-          </span>
-          {stat.description && (
-            <p className="mt-1 text-sm leading-relaxed text-white/50">
-              {stat.description}
-            </p>
-          )}
-        </div>
+        <StatCard
+          key={stat.label}
+          icon={stat.icon}
+          value={stat.value}
+          label={stat.label}
+        />
       ))}
     </div>
   );
@@ -101,49 +118,84 @@ export default function NadeeshaKoralagePage() {
       </Section>
 
       <Section eyebrow="Full-Year Results — January to December 2025">
-        <StatGrid
-          stats={[
-            {
-              value: 219,
-              suffix: "Mn+",
-              label: "Total Views (All Platforms)",
-            },
-            { value: 15, suffix: "Mn+", label: "Total Interactions" },
-            { value: 20252, suffix: " Days", label: "Facebook Watch Time" },
-            {
-              value: 156300,
-              suffix: "+",
-              label: "Facebook Follower Growth",
-              description: "379.6% increase year-on-year.",
-            },
-            {
-              value: 26,
-              suffix: "",
-              label: "Facebook Videos with 500K+ Views",
-            },
-            {
-              value: 52,
-              suffix: "",
-              label: "TikTok Videos with 500K+ Views",
-            },
-          ]}
-        />
+        <div className="grid grid-cols-1 items-center gap-12 border-b border-line pb-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          <p className="max-w-xl text-[clamp(1.35rem,2.4vw,1.85rem)] font-medium italic leading-relaxed text-white/80">
+            &ldquo;The classroom became the content. The content built a
+            community. And the community delivered extraordinary
+            results.&rdquo;
+          </p>
+          <div className="flex flex-col gap-2 lg:items-end lg:text-right">
+            <span className="text-[clamp(4rem,9vw,6.5rem)] font-bold leading-none tracking-tight text-white">
+              <AnimatedCounter value={219} suffix="M+" />
+            </span>
+            <span className="text-sm font-medium uppercase tracking-[0.25em] text-white/60">
+              Total Views Across All Platforms
+            </span>
+            <span className="text-xs uppercase tracking-[0.2em] text-white/35">
+              In a country with a population of 22 million
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <StatGrid
+            stats={[
+              {
+                value: 15,
+                suffix: "Mn+",
+                label: "Total Interactions",
+                icon: <MessageCircle className={iconClass} strokeWidth={1.5} />,
+              },
+              {
+                value: 20252,
+                suffix: " Days",
+                label: "Facebook Watch Time",
+                icon: <Clock className={iconClass} strokeWidth={1.5} />,
+              },
+              {
+                value: 156300,
+                suffix: "+",
+                label: "Facebook Follower Growth",
+                description: "379.6% increase year-on-year.",
+                icon: <TrendingUp className={iconClass} strokeWidth={1.5} />,
+              },
+              {
+                value: 26,
+                suffix: "",
+                label: "Facebook Videos with 500K+ Views",
+                icon: <Award className={iconClass} strokeWidth={1.5} />,
+              },
+              {
+                value: 52,
+                suffix: "",
+                label: "TikTok Videos with 500K+ Views",
+                icon: <Flame className={iconClass} strokeWidth={1.5} />,
+              },
+            ]}
+          />
+        </div>
       </Section>
 
       <Section eyebrow="Facebook Performance Results — 2025">
-        <StatCardsRow stats={FACEBOOK_VIEWS} />
+        <PlatformStatGrid stats={FACEBOOK_VIEWS} />
+        <div className="mt-8 max-w-md">
+          <SplitBar {...FACEBOOK_SPLIT} />
+        </div>
       </Section>
 
       <Section eyebrow="Instagram Performance Results — 2025">
-        <StatCardsRow stats={INSTAGRAM_VIEWS} />
+        <PlatformStatGrid stats={INSTAGRAM_VIEWS} />
+        <div className="mt-8 max-w-md">
+          <SplitBar {...INSTAGRAM_SPLIT} />
+        </div>
       </Section>
 
       <Section eyebrow="TikTok Performance Results — 2025">
-        <StatCardsRow stats={TIKTOK_VIEWS} />
+        <PlatformStatGrid stats={TIKTOK_VIEWS} />
       </Section>
 
       <Section eyebrow="YouTube Performance Results — 2025">
-        <StatCardsRow stats={YOUTUBE_VIEWS} />
+        <PlatformStatGrid stats={YOUTUBE_VIEWS} />
       </Section>
 
       <Section eyebrow="Paid Campaign Performance — 2025">
@@ -151,9 +203,10 @@ export default function NadeeshaKoralagePage() {
           {PAID_PERFORMANCE.map((row) => (
             <div
               key={row.label}
-              className="flex items-baseline justify-between gap-6 px-6 py-5 sm:px-8"
+              className="flex items-center justify-between gap-6 px-6 py-5 sm:px-8"
             >
-              <span className="text-sm font-semibold uppercase tracking-wide text-white">
+              <span className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-white">
+                {row.icon}
                 {row.label}
               </span>
               <span className="text-sm text-white/60">{row.value}</span>
@@ -169,7 +222,10 @@ export default function NadeeshaKoralagePage() {
               key={item}
               className="group flex items-start gap-3 text-base font-medium text-white/85 transition-colors duration-300 hover:text-white"
             >
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50 transition-colors duration-300 group-hover:bg-white" />
+              <CircleCheck
+                className="mt-0.5 h-5 w-5 shrink-0 text-white/40 transition-colors duration-300 group-hover:text-white"
+                strokeWidth={1.5}
+              />
               <span>{item}</span>
             </li>
           ))}
