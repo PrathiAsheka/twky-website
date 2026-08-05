@@ -160,7 +160,7 @@ export const KNOWLEDGE_BASE: KBEntry[] = [
       "education case study",
     ],
     answer:
-      "Nadeesha Koralage, an Advanced Level Business Studies Tutor, has been a client since 2024. On Facebook alone he's generated 11Mn+ video views, 2Mn+ total reach, and 600K+ interactions, with strong results on TikTok and Instagram too.",
+      "Nadeesha Koralage, an Advanced Level Business Studies Tutor, has been a client since 2024. In the 2025 full year, his campaign reached 219Mn+ total views across Facebook, Instagram, TikTok, and YouTube, with 15Mn+ total interactions and 156K+ new Facebook followers.",
     link: {
       label: "Read the Full Case Study",
       href: "/case-studies/nadeesha-koralage",

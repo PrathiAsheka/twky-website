@@ -36,7 +36,7 @@ const FEATURED = [
     title: "Nadeesha Koralage",
     href: "/case-studies/nadeesha-koralage",
     tag: "Authority Driven Personal Brand",
-    stat: "11Mn+ Facebook video views",
+    stat: "219Mn+ total views (all platforms)",
   },
 ];
 

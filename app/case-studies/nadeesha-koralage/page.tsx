@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import StatGrid from "@/components/StatGrid";
-import AnimatedCounter from "@/components/AnimatedCounter";
 
 export const metadata: Metadata = {
   title: "Nadeesha Koralage Case Study — They Will Know You",
@@ -10,11 +9,30 @@ export const metadata: Metadata = {
     "Authority Driven Personal Brand — full ecosystem social media growth focused on authority, reach, and consistency.",
 };
 
-const AUDIENCE_REACH = [
-  { value: 213700, label: "Facebook Followers" },
-  { value: 23900, label: "Instagram Followers" },
-  { value: 192800, label: "TikTok Followers" },
-  { value: 19700, label: "YouTube Subscribers" },
+const FACEBOOK_VIEWS = [
+  { value: "120.6M", label: "Total Views" },
+  { value: "103.1M", label: "Organic Views" },
+  { value: "17.6M", label: "Paid Views" },
+];
+
+const INSTAGRAM_VIEWS = [
+  { value: "13.9M", label: "Total Views" },
+  { value: "13.7M", label: "Organic Views" },
+  { value: "264K", label: "Paid Views" },
+];
+
+const TIKTOK_VIEWS = [
+  { value: "80.1M", label: "Total Views" },
+  { value: "52", label: "Videos with 500K+ Views" },
+];
+
+const YOUTUBE_VIEWS = [{ value: "4.5M", label: "Total Views" }];
+
+const PAID_PERFORMANCE = [
+  { label: "Spend", value: "$1,953.98" },
+  { label: "Impressions", value: "14,593,701" },
+  { label: "Reach", value: "14,593,701" },
+  { label: "Clicks", value: "72,246" },
 ];
 
 const GROWTH_PRINCIPLES = [
@@ -24,6 +42,42 @@ const GROWTH_PRINCIPLES = [
   "Continuous performance tracking and content optimization",
   "Timely content aligned with academic needs and trends",
 ];
+
+const GRID_COLS_BY_COUNT: Record<number, string> = {
+  1: "sm:grid-cols-1",
+  2: "sm:grid-cols-2",
+  3: "sm:grid-cols-3",
+};
+
+function StatCardsRow({
+  stats,
+}: {
+  stats: { value: string; label: string; description?: string }[];
+}) {
+  const gridCols = GRID_COLS_BY_COUNT[stats.length] ?? "sm:grid-cols-3";
+
+  return (
+    <div
+      className={`grid grid-cols-1 gap-10 border border-line bg-surface p-8 sm:gap-10 sm:p-10 ${gridCols}`}
+    >
+      {stats.map((stat) => (
+        <div key={stat.label} className="flex flex-col gap-2">
+          <span className="text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-none tracking-tight text-white">
+            {stat.value}
+          </span>
+          <span className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
+            {stat.label}
+          </span>
+          {stat.description && (
+            <p className="mt-1 text-sm leading-relaxed text-white/50">
+              {stat.description}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function NadeeshaKoralagePage() {
   return (
@@ -46,78 +100,66 @@ export default function NadeeshaKoralagePage() {
         </p>
       </Section>
 
-      <Section eyebrow="Facebook Performance Results">
+      <Section eyebrow="Full-Year Results — January to December 2025">
         <StatGrid
           stats={[
             {
-              value: 11,
+              value: 219,
               suffix: "Mn+",
-              label: "Video Views",
-              description: "Massive organic reach driven by consistent, high-quality content.",
+              label: "Total Views (All Platforms)",
+            },
+            { value: 15, suffix: "Mn+", label: "Total Interactions" },
+            { value: 20252, suffix: " Days", label: "Facebook Watch Time" },
+            {
+              value: 156300,
+              suffix: "+",
+              label: "Facebook Follower Growth",
+              description: "379.6% increase year-on-year.",
             },
             {
-              value: 2,
-              suffix: "Mn+",
-              label: "Total Reach",
-              description: "Audiences reached across the Facebook ecosystem.",
+              value: 26,
+              suffix: "",
+              label: "Facebook Videos with 500K+ Views",
             },
             {
-              value: 600,
-              suffix: "K+",
-              label: "Interactions",
-              description: "Likes, comments, shares, and saves reflecting genuine engagement.",
+              value: 52,
+              suffix: "",
+              label: "TikTok Videos with 500K+ Views",
             },
           ]}
         />
       </Section>
 
-      <Section eyebrow="TikTok Performance Results">
-        <StatGrid
-          stats={[
-            { value: 7, suffix: "Mn+", label: "Video Views" },
-            { value: 800, suffix: "K+", label: "Total Likes" },
-            { value: 15, suffix: "K+", label: "Shares" },
-          ]}
-        />
+      <Section eyebrow="Facebook Performance Results — 2025">
+        <StatCardsRow stats={FACEBOOK_VIEWS} />
       </Section>
 
-      <Section eyebrow="Instagram Performance Results">
-        <StatGrid
-          stats={[
-            { value: 2, suffix: "Mn+", label: "Total Views" },
-            { value: 240, suffix: "K+", label: "Reach" },
-            { value: 250, suffix: "K+", label: "Interactions" },
-          ]}
-        />
+      <Section eyebrow="Instagram Performance Results — 2025">
+        <StatCardsRow stats={INSTAGRAM_VIEWS} />
       </Section>
 
-      <Section eyebrow="Audience Reach">
-        <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
-          {AUDIENCE_REACH.map((stat) => (
-            <div key={stat.label} className="group flex flex-col gap-2">
-              <span className="text-[clamp(1.75rem,3vw,2.75rem)] font-bold leading-none tracking-tight text-white transition-transform duration-300 group-hover:-translate-y-1">
-                <AnimatedCounter value={stat.value} suffix="+" />
+      <Section eyebrow="TikTok Performance Results — 2025">
+        <StatCardsRow stats={TIKTOK_VIEWS} />
+      </Section>
+
+      <Section eyebrow="YouTube Performance Results — 2025">
+        <StatCardsRow stats={YOUTUBE_VIEWS} />
+      </Section>
+
+      <Section eyebrow="Paid Campaign Performance — 2025">
+        <div className="divide-y divide-line border border-line bg-surface">
+          {PAID_PERFORMANCE.map((row) => (
+            <div
+              key={row.label}
+              className="flex items-baseline justify-between gap-6 px-6 py-5 sm:px-8"
+            >
+              <span className="text-sm font-semibold uppercase tracking-wide text-white">
+                {row.label}
               </span>
-              <span className="text-sm font-medium uppercase tracking-[0.2em] text-white/70 transition-colors duration-300 group-hover:text-white">
-                {stat.label}
-              </span>
+              <span className="text-sm text-white/60">{row.value}</span>
             </div>
           ))}
         </div>
-      </Section>
-
-      <Section eyebrow="Growth Snapshot">
-        <p className="max-w-3xl text-lg leading-relaxed text-white/70">
-          From December 2025 to March 2026, content performance and audience
-          engagement improved significantly. According to the monthly
-          insights report, total views grew from approximately{" "}
-          <span className="font-semibold text-white">22.4 million</span> in
-          December to over{" "}
-          <span className="font-semibold text-white">29.2 million</span> in
-          March — a strong upward trend in content visibility and audience
-          reach, with TikTok and Facebook driving viral reach while
-          Instagram supported steady audience building and retention.
-        </p>
       </Section>
 
       <Section eyebrow="What Made This Growth Possible">

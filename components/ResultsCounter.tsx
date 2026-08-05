@@ -6,9 +6,9 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import { fadeUpContainer, fadeUpItem } from "@/lib/motion";
 
 const STATS = [
-  { value: 11, suffix: "Mn+", label: "Video Views" },
-  { value: 2, suffix: "Mn+", label: "Total Reach" },
-  { value: 600, suffix: "K+", label: "Interactions" },
+  { value: 219, suffix: "Mn+", label: "Total Views" },
+  { value: 15, suffix: "Mn+", label: "Total Interactions" },
+  { value: 156, suffix: "K+", label: "Facebook Follower Growth" },
 ];
 
 export default function ResultsCounter() {
@@ -31,7 +31,7 @@ export default function ResultsCounter() {
             variants={fadeUpItem}
             className="mb-14 text-sm uppercase tracking-[0.2em] text-white/40 lg:mb-20"
           >
-            Facebook Performance — Nadeesha Koralage
+            Full-Year Results (Jan–Dec 2025) — Nadeesha Koralage
           </motion.p>
 
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
