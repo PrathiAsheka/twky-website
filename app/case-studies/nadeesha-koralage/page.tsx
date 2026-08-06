@@ -1,18 +1,9 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
-import {
-  Award,
-  Clock,
-  CircleCheck,
-  Eye,
-  Flame,
-  MessageCircle,
-  TrendingUp,
-} from "lucide-react";
+import Image from "next/image";
+import { Clock, CircleCheck, MessageCircle, TrendingUp } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import StatGrid from "@/components/StatGrid";
-import StatCard from "@/components/StatCard";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
 export const metadata: Metadata = {
@@ -23,13 +14,6 @@ export const metadata: Metadata = {
 
 const iconClass = "h-6 w-6";
 
-const PLATFORM_VIEWS = [
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "120.6M", label: "Facebook" },
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "13.9M", label: "Instagram" },
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "80.1M", label: "TikTok" },
-  { icon: <Eye className={iconClass} strokeWidth={1.5} />, value: "4.5M", label: "YouTube" },
-];
-
 const GROWTH_PRINCIPLES = [
   "A clear and consistent content strategy tailored to students",
   "High volume of engaging short-form video content",
@@ -37,34 +21,6 @@ const GROWTH_PRINCIPLES = [
   "Continuous performance tracking and content optimization",
   "Timely content aligned with academic needs and trends",
 ];
-
-const GRID_COLS_BY_COUNT: Record<number, string> = {
-  1: "sm:grid-cols-1",
-  2: "sm:grid-cols-2",
-  3: "sm:grid-cols-3",
-  4: "sm:grid-cols-2 lg:grid-cols-4",
-};
-
-function PlatformStatGrid({
-  stats,
-}: {
-  stats: { icon: ReactNode; value: string; label: string }[];
-}) {
-  const gridCols = GRID_COLS_BY_COUNT[stats.length] ?? "sm:grid-cols-3";
-
-  return (
-    <div className={`grid grid-cols-1 gap-4 ${gridCols}`}>
-      {stats.map((stat) => (
-        <StatCard
-          key={stat.label}
-          icon={stat.icon}
-          value={stat.value}
-          label={stat.label}
-        />
-      ))}
-    </div>
-  );
-}
 
 export default function NadeeshaKoralagePage() {
   return (
@@ -76,15 +32,28 @@ export default function NadeeshaKoralagePage() {
       />
 
       <Section eyebrow="The Growth Narrative">
-        <p className="max-w-3xl text-lg leading-relaxed text-white/70">
-          Mr. Nadeesha Koralage, an Advanced Level Business Studies Tutor,
-          has been one of the earliest and most valued clients of TWKY
-          Branding, working with us since 2024. What started as a focused
-          effort to strengthen his online presence has grown into a powerful
-          digital ecosystem that continues to expand across multiple
-          platforms. Today, his brand stands as one of the most recognized
-          Business Studies education platforms on social media in Sri Lanka.
-        </p>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[320px_1fr] lg:items-center">
+          <div className="relative mx-auto w-full max-w-[280px] lg:mx-0 lg:max-w-none">
+            <Image
+              src="/nadeesha-koralage-portrait.webp"
+              alt="Nadeesha Koralage"
+              width={800}
+              height={1426}
+              unoptimized
+              className="h-auto w-full object-contain"
+            />
+          </div>
+          <p className="max-w-3xl text-lg leading-relaxed text-white/70">
+            Mr. Nadeesha Koralage, an Advanced Level Business Studies Tutor,
+            has been one of the earliest and most valued clients of TWKY
+            Branding, working with us since 2024. What started as a focused
+            effort to strengthen his online presence has grown into a
+            powerful digital ecosystem that continues to expand across
+            multiple platforms. Today, his brand stands as one of the most
+            recognized Business Studies education platforms on social media
+            in Sri Lanka.
+          </p>
+        </div>
       </Section>
 
       <Section eyebrow="Full-Year Results — January to December 2025">
@@ -129,25 +98,9 @@ export default function NadeeshaKoralagePage() {
                 description: "379.6% increase year-on-year.",
                 icon: <TrendingUp className={iconClass} strokeWidth={1.5} />,
               },
-              {
-                value: 26,
-                suffix: "",
-                label: "Facebook Videos with 500K+ Views",
-                icon: <Award className={iconClass} strokeWidth={1.5} />,
-              },
-              {
-                value: 52,
-                suffix: "",
-                label: "TikTok Videos with 500K+ Views",
-                icon: <Flame className={iconClass} strokeWidth={1.5} />,
-              },
             ]}
           />
         </div>
-      </Section>
-
-      <Section eyebrow="Total Views by Platform — 2025">
-        <PlatformStatGrid stats={PLATFORM_VIEWS} />
       </Section>
 
       <Section eyebrow="What Made This Growth Possible">
