@@ -16,6 +16,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "They Will Know You",
   description: "We don't just market. We build influence.",
+  verification: {
+    google: "JMZsJToH81mURDWj9PMfdSo_tBE-qwh3N_ZHOguXtHw",
+  },
 };
 
 export default function RootLayout({
