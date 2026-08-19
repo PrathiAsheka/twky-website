@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PreloaderProvider from "@/components/PreloaderProvider";
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        <GoogleTagManager gtmId="GTM-PNBGDTK7" />
         <PreloaderProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
