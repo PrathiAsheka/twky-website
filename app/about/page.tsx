@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Download } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import MagneticButton from "@/components/MagneticButton";
@@ -20,16 +19,7 @@ export default function AboutPage() {
         eyebrow="About TWKY"
         title="Setting a higher standard in modern brand communication."
         description="To position TWKY Branding as a leading digital marketing partner in Sri Lanka, known for building distinctive brands, elevating digital presence, and setting a higher standard in modern brand communication."
-      >
-        <a
-          href="/TWKY-Digital-Portfolio.pdf"
-          download="TWKY-Digital-Portfolio.pdf"
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-2.5 text-sm font-semibold text-white/80 transition-all duration-300 hover:border-white hover:text-white hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
-        >
-          <Download className="h-4 w-4" aria-hidden />
-          Download Digital Portfolio
-        </a>
-      </PageHero>
+      />
 
       <Section id="who-we-are" eyebrow="Who We Are">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -100,7 +90,7 @@ export default function AboutPage() {
             </h2>
           </div>
           <MagneticButton href="/about/leadership">
-            View Leadership
+            View Team
           </MagneticButton>
         </div>
       </section>

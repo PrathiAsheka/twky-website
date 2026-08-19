@@ -34,7 +34,7 @@ export const NAV_LINKS: NavLink[] = [
       { label: "Who We Are", href: "/about#who-we-are" },
       { label: "Vision & Mission", href: "/about#vision-mission" },
       { label: "What We Do", href: "/about#what-we-do" },
-      { label: "Leadership", href: "/about/leadership" },
+      { label: "Team", href: "/about/leadership" },
     ],
   },
   { label: "Contact", href: "/contact" },
