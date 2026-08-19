@@ -7,6 +7,7 @@ import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CTA_LABEL, NAV_LINKS } from "@/lib/navigation";
 import MagneticButton from "@/components/MagneticButton";
+import { trackCtaClick } from "@/lib/analytics";
 
 const mobileListVariants: Variants = {
   open: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
@@ -109,7 +110,12 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
+          <MagneticButton
+            href="/contact"
+            onClick={() => trackCtaClick(CTA_LABEL, "/contact")}
+          >
+            {CTA_LABEL}
+          </MagneticButton>
         </div>
 
         {/* Mobile toggle */}
@@ -179,7 +185,11 @@ export default function Navbar() {
                 </motion.li>
               ))}
               <motion.li variants={mobileItemVariants} className="pt-4">
-                <MagneticButton href="/contact" fullWidth>
+                <MagneticButton
+                  href="/contact"
+                  fullWidth
+                  onClick={() => trackCtaClick(CTA_LABEL, "/contact")}
+                >
                   {CTA_LABEL}
                 </MagneticButton>
               </motion.li>

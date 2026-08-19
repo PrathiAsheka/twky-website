@@ -9,6 +9,7 @@ interface MagneticButtonProps {
   children: ReactNode;
   className?: string;
   fullWidth?: boolean;
+  onClick?: () => void;
 }
 
 export default function MagneticButton({
@@ -16,6 +17,7 @@ export default function MagneticButton({
   children,
   className = "",
   fullWidth = false,
+  onClick,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
@@ -42,6 +44,7 @@ export default function MagneticButton({
     >
       <Link
         href={href}
+        onClick={onClick}
         className={`relative inline-flex items-center justify-center rounded-full bg-white px-6 py-2.5 text-center text-sm font-semibold text-black transition-shadow duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.35)] ${
           fullWidth ? "w-full" : ""
         } ${className}`}

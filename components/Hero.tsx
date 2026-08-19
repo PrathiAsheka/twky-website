@@ -7,6 +7,7 @@ import GlobeVisual from "@/components/GlobeVisual";
 import TiltFrame from "@/components/TiltFrame";
 import { usePreloader } from "@/components/PreloaderProvider";
 import { CTA_LABEL } from "@/lib/navigation";
+import { trackCtaClick } from "@/lib/analytics";
 
 const container: Variants = {
   hidden: {},
@@ -91,7 +92,12 @@ export default function Hero() {
               variants={item}
               className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
-              <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
+              <MagneticButton
+                href="/contact"
+                onClick={() => trackCtaClick(CTA_LABEL, "/contact")}
+              >
+                {CTA_LABEL}
+              </MagneticButton>
 
               <motion.div
                 whileHover={{ scale: 1.03 }}

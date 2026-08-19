@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CONTACT_INFO } from "@/lib/navigation";
 import { fadeUpItem } from "@/lib/motion";
+import { trackLead } from "@/lib/analytics";
 
 const INTENT_OPTIONS = [
   "Full Funnel Audit",
@@ -30,6 +31,7 @@ export default function ContactForm() {
       `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany Website: ${company}\nIntent: ${intent}`
     );
     window.location.href = `mailto:${CONTACT_INFO.email}?subject=${subject}&body=${body}`;
+    trackLead(intent);
     setSubmitted(true);
   };
 
