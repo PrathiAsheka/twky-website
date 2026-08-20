@@ -121,10 +121,7 @@ export default function ConnectClient() {
               unoptimized
               className="h-16 w-16 object-contain"
             />
-            <span className="mt-6 text-xs font-medium uppercase tracking-[0.3em] text-white/40">
-              Digital Business Card
-            </span>
-            <h1 className="mt-3 text-2xl font-bold tracking-tight text-white">
+            <h1 className="mt-6 text-2xl font-bold tracking-tight text-white">
               They Will Know You
             </h1>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">

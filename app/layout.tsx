@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ConditionalFooter from "@/components/ConditionalFooter";
 import PreloaderProvider from "@/components/PreloaderProvider";
 import Chatbot from "@/components/Chatbot";
 import "./globals.css";
@@ -33,7 +33,7 @@ export default function RootLayout({
         <PreloaderProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
-          <Footer />
+          <ConditionalFooter />
           <Chatbot />
         </PreloaderProvider>
       </body>
