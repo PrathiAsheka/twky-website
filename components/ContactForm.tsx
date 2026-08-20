@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CONTACT_INFO } from "@/lib/navigation";
 import { fadeUpItem } from "@/lib/motion";
-import { trackLead } from "@/lib/analytics";
+import { trackEvent } from "@/lib/analytics";
 
 const INTENT_OPTIONS = [
   "Full Funnel Audit",
@@ -13,8 +13,12 @@ const INTENT_OPTIONS = [
   "Social Media Management",
 ];
 
+const WEB3FORMS_ACCESS_KEY = "ce57a494-bfda-4140-b998-3ed9243fe58c";
+
 const inputClasses =
   "w-full border-b border-line bg-transparent py-3 text-white placeholder:text-white/30 focus:border-white focus:outline-none transition-colors";
+
+type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -22,17 +26,52 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [intent, setIntent] = useState(INTENT_OPTIONS[0]);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`New enquiry: ${intent}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany Website: ${company}\nIntent: ${intent}`
-    );
-    window.location.href = `mailto:${CONTACT_INFO.email}?subject=${subject}&body=${body}`;
-    trackLead(intent);
-    setSubmitted(true);
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "New Lead Submission from theywillknowyou.com",
+          from_name: "TWKY Website Contact Form",
+          name,
+          email,
+          phone,
+          company_website: company,
+          service_interest: intent,
+          message: `Service interest: ${intent}\nPhone: ${phone || "Not provided"}\nCompany website: ${company || "Not provided"}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setPhone("");
+        setCompany("");
+        setIntent(INTENT_OPTIONS[0]);
+
+        trackEvent("generate_lead", {
+          form_name: "contact_form",
+          page_location: window.location.href,
+        });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -133,15 +172,22 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-black transition-shadow duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.35)]"
+        disabled={status === "loading"}
+        className="mt-4 inline-flex w-fit items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-black transition-shadow duration-300 hover:shadow-[0_0_35px_rgba(255,255,255,0.35)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:shadow-none"
       >
-        Send Enquiry
+        {status === "loading" ? "Sending message..." : "Send Enquiry"}
       </button>
 
-      {submitted && (
-        <p className="text-sm text-white/50">
-          Your email client should now be open with your message pre-filled —
-          send it across and we&apos;ll be in touch.
+      {status === "success" && (
+        <p className="text-sm text-white/70">
+          Thank you! Your message has been sent to our team.
+        </p>
+      )}
+
+      {status === "error" && (
+        <p className="text-sm text-red-400">
+          Oops, something went wrong. Please try again or email{" "}
+          {CONTACT_INFO.email} directly.
         </p>
       )}
     </motion.form>
