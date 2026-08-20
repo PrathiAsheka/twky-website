@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: "/connect",
     },
     sitemap: "https://www.theywillknowyou.com/sitemap.xml",
   };
