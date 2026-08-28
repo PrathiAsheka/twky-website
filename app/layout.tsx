@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import ConditionalFooter from "@/components/ConditionalFooter";
 import PreloaderProvider from "@/components/PreloaderProvider";
 import Chatbot from "@/components/Chatbot";
+import { SITE_URL, SITE_NAME, SITE_DESCRIPTION, jsonLdSchema } from "@/lib/structuredData";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -14,10 +15,47 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "They Will Know You",
-  description: "We don't just market. We build influence.",
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "digital marketing agency Sri Lanka",
+    "social media management",
+    "brand strategy",
+    "performance marketing",
+    "content strategy agency",
+    "paid media management",
+    "digital growth partner",
+    "They Will Know You",
+    "TWKY Branding",
+  ],
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   verification: {
     google: "JMZsJToH81mURDWj9PMfdSo_tBE-qwh3N_ZHOguXtHw",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: "They Will Know You — Digital Growth Partner",
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: "/logo.jpeg",
+        width: 1181,
+        height: 1181,
+        alt: SITE_NAME,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "They Will Know You — Digital Growth Partner",
+    description: SITE_DESCRIPTION,
+    images: ["/logo.jpeg"],
   },
 };
 
@@ -29,6 +67,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLdSchema).replace(/</g, "\\u003c"),
+          }}
+        />
         <GoogleTagManager gtmId="GTM-PNBGDTK7" />
         <PreloaderProvider>
           <Navbar />
