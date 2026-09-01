@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import Card from "@/components/Card";
 
 export const metadata: Metadata = {
-  title: "Paid Media — They Will Know You",
+  title: "Paid Media Management",
   description:
     "Funnel-based advertising, creative testing frameworks, and continuous optimisation systems that turn spend into scale.",
 };

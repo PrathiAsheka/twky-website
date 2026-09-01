@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import TeamCard from "@/components/TeamCard";
 
 export const metadata: Metadata = {
-  title: "Leadership — They Will Know You",
+  title: "Leadership Team",
   description: "The team behind TWKY's growth systems.",
 };
 

@@ -7,7 +7,7 @@ import Card from "@/components/Card";
 import { WHAT_WE_DO } from "@/lib/whatWeDo";
 
 export const metadata: Metadata = {
-  title: "About — They Will Know You",
+  title: "About Us",
   description:
     "A leading digital marketing partner in Sri Lanka, building distinctive brands and setting a higher standard in modern brand communication.",
 };

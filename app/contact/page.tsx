@@ -6,7 +6,7 @@ import ContactForm from "@/components/ContactForm";
 import { CONTACT_INFO } from "@/lib/navigation";
 
 export const metadata: Metadata = {
-  title: "Contact — They Will Know You",
+  title: "Contact Us",
   description: "Let's Build Your Growth System.",
 };
 

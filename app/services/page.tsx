@@ -7,7 +7,7 @@ import LinkCard from "@/components/LinkCard";
 import { WHAT_WE_DO } from "@/lib/whatWeDo";
 
 export const metadata: Metadata = {
-  title: "Services — They Will Know You",
+  title: "Services",
   description:
     "End-to-end execution, plus everything beyond it — social media management, content strategy, brand positioning, paid media, and digital marketing consultation.",
 };

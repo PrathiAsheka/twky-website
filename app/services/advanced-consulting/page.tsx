@@ -3,7 +3,7 @@ import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
-  title: "Advanced Consulting — They Will Know You",
+  title: "Advanced Consulting",
   description:
     "Strategic advisory on audience clarity, brand positioning, and content direction for brands navigating complex digital landscapes.",
 };

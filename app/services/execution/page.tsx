@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 import Card from "@/components/Card";
 
 export const metadata: Metadata = {
-  title: "Execution Suite — They Will Know You",
+  title: "Execution Suite",
   description:
     "The core content engine — weekly planning, video production, copywriting, multi-platform publishing, and performance reporting.",
 };

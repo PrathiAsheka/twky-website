@@ -33,9 +33,9 @@ export default function Section({
             variants={fadeUpItem}
             className="mb-12 flex items-center lg:mb-16"
           >
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
+            <h2 className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
               {eyebrow}
-            </span>
+            </h2>
           </motion.div>
 
           {children}

@@ -16,7 +16,10 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "They Will Know You",
+  title: {
+    default: "They Will Know You — Digital Growth Partner",
+    template: "%s | They Will Know You",
+  },
   description: SITE_DESCRIPTION,
   keywords: [
     "digital marketing agency Sri Lanka",

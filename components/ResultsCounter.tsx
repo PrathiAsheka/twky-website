@@ -22,9 +22,9 @@ export default function ResultsCounter() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div variants={fadeUpItem} className="mb-6 flex items-center">
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
+            <h2 className="text-xs font-medium uppercase tracking-[0.3em] text-white/50">
               Proven Results
-            </span>
+            </h2>
           </motion.div>
 
           <motion.p

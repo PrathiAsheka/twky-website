@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import Card from "@/components/Card";
 
 export const metadata: Metadata = {
-  title: "Case Studies — They Will Know You",
+  title: "Case Studies",
   description:
     "We partner with ambitious brands across diverse sectors, each with a unique story and a shared goal of meaningful digital growth.",
 };

@@ -7,7 +7,7 @@ import StatGrid from "@/components/StatGrid";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
 export const metadata: Metadata = {
-  title: "Nadeesha Koralage Case Study — They Will Know You",
+  title: "Nadeesha Koralage Case Study",
   description:
     "Authority Driven Personal Brand — full ecosystem social media growth focused on authority, reach, and consistency.",
 };
