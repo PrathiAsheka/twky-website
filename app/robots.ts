@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/connect",
     },
-    sitemap: "https://www.theywillknowyou.com/sitemap.xml",
+    sitemap: "https://theywillknowyou.com/sitemap.xml",
   };
 }
