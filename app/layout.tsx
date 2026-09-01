@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/logo.jpeg",
-        width: 1181,
-        height: 1181,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
         alt: SITE_NAME,
       },
     ],
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "They Will Know You — Digital Growth Partner",
     description: SITE_DESCRIPTION,
-    images: ["/logo.jpeg"],
+    images: ["/og-image.png"],
   },
 };
 
