@@ -70,6 +70,7 @@ export default function ConnectClient() {
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: "New Business Card Lead — theywillknowyou.com/connect",
           from_name: "TWKY Business Card",
+          replyto: email,
           name,
           email,
           phone,

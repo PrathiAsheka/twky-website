@@ -26,6 +26,7 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const [intent, setIntent] = useState(INTENT_OPTIONS[0]);
+  const [message, setMessage] = useState("");
   const [status, setStatus] = useState<SubmitStatus>("idle");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -43,12 +44,13 @@ export default function ContactForm() {
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: "New Lead Submission from theywillknowyou.com",
           from_name: "TWKY Website Contact Form",
+          replyto: email,
           name,
           email,
           phone,
           company_website: company,
           service_interest: intent,
-          message: `Service interest: ${intent}\nPhone: ${phone || "Not provided"}\nCompany website: ${company || "Not provided"}`,
+          message,
         }),
       });
 
@@ -61,6 +63,7 @@ export default function ContactForm() {
         setPhone("");
         setCompany("");
         setIntent(INTENT_OPTIONS[0]);
+        setMessage("");
 
         trackEvent("generate_lead", {
           form_name: "contact_form",
@@ -168,6 +171,24 @@ export default function ContactForm() {
             </option>
           ))}
         </select>
+      </div>
+
+      <div>
+        <label
+          htmlFor="message"
+          className="text-xs uppercase tracking-[0.2em] text-white/40"
+        >
+          Message
+        </label>
+        <textarea
+          id="message"
+          rows={4}
+          required
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className={`${inputClasses} resize-none`}
+          placeholder="Tell us about your goals, timeline, or anything else we should know"
+        />
       </div>
 
       <button
