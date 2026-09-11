@@ -160,7 +160,7 @@ export async function POST(request: Request) {
 
   try {
     await resend.emails.send({
-      from: "They Will Know You <hello@theywillknowyou.com>",
+      from: "They Will Know You <cs@theywillknowyou.com>",
       to: CONTACT_INFO.email,
       replyTo: email,
       subject: `New Lead: ${name} — theywillknowyou.com`,
