@@ -13,8 +13,6 @@ const INTENT_OPTIONS = [
   "Social Media Management",
 ];
 
-const WEB3FORMS_ACCESS_KEY = "ce57a494-bfda-4140-b998-3ed9243fe58c";
-
 const inputClasses =
   "w-full border-b border-line bg-transparent py-3 text-white placeholder:text-white/30 focus:border-white focus:outline-none transition-colors";
 
@@ -34,23 +32,18 @@ export default function ContactForm() {
     setStatus("loading");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "New Lead Submission from theywillknowyou.com",
-          from_name: "TWKY Website Contact Form",
-          replyto: email,
           name,
           email,
           phone,
-          company_website: company,
-          service_interest: intent,
+          intent,
           message,
+          company,
         }),
       });
 
