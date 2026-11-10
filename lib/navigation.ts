@@ -55,4 +55,22 @@ export const CONTACT_INFO = {
   ] satisfies Hotline[],
 };
 
+/** Converts a local Sri Lankan number ("070 605 0123") to E.164 ("+94706050123"). */
+export function toSriLankaE164(localNumber: string): string {
+  const digitsOnly = localNumber.replace(/\D/g, "");
+  return `+94${digitsOnly.replace(/^0/, "")}`;
+}
+
+/**
+ * Official social profile URLs. Fill these in — they power the "sameAs"
+ * structured data that links the brand to its social accounts in Google.
+ * Empty entries are skipped automatically.
+ */
+export const SOCIAL_PROFILES: string[] = [
+  // "https://www.facebook.com/…",
+  // "https://www.instagram.com/…",
+  // "https://www.linkedin.com/company/…",
+  // "https://www.tiktok.com/@…",
+];
+
 export const CTA_LABEL = "Schedule a Strategy Audit";

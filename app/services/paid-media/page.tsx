@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, serviceSchema } from "@/lib/structuredData";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 
-export const metadata: Metadata = {
-  title: "Paid Media Management",
+export const metadata: Metadata = pageMetadata({
+  title: "Paid Media & Ads Management",
   description:
-    "Funnel-based advertising, creative testing frameworks, and continuous optimisation systems that turn spend into scale.",
-};
+    "Meta and paid social advertising built on funnel strategy, creative testing and continuous optimisation that turns ad spend into scale.",
+  path: "/services/paid-media",
+});
 
 const BEYOND_EXECUTION = [
   {
@@ -85,6 +89,17 @@ const AUDIT_STEPS = [
 export default function PaidMediaPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Paid Media", path: "/services/paid-media" }]),
+          serviceSchema({
+            name: "Paid Media & Ads Management",
+            serviceType: "Paid social advertising",
+            description: metadata.description as string,
+            path: "/services/paid-media",
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="Services / Paid Media"
         title="Advanced Advertising & Performance"

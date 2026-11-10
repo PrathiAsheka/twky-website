@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, serviceSchema } from "@/lib/structuredData";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 
-export const metadata: Metadata = {
-  title: "Execution Suite",
+export const metadata: Metadata = pageMetadata({
+  title: "Social Media Management & Content",
   description:
-    "The core content engine — weekly planning, video production, copywriting, multi-platform publishing, and performance reporting.",
-};
+    "Our core content engine: weekly planning, video production, copywriting, multi-platform publishing and monthly performance reporting.",
+  path: "/services/execution",
+});
 
 const EXECUTION_ITEMS = [
   {
@@ -64,6 +68,17 @@ const COMPULSORY_TASKS = [
 export default function ExecutionPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Execution Suite", path: "/services/execution" }]),
+          serviceSchema({
+            name: "Social Media Management & Content Creation",
+            serviceType: "Social media management",
+            description: metadata.description as string,
+            path: "/services/execution",
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="Services / Execution Suite"
         title="End to End Execution"

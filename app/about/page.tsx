@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structuredData";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
@@ -6,15 +9,19 @@ import MagneticButton from "@/components/MagneticButton";
 import Card from "@/components/Card";
 import { WHAT_WE_DO } from "@/lib/whatWeDo";
 
-export const metadata: Metadata = {
-  title: "About Us",
+export const metadata: Metadata = pageMetadata({
+  title: "About Our Digital Marketing Agency",
   description:
-    "A leading digital marketing partner in Sri Lanka, building distinctive brands and setting a higher standard in modern brand communication.",
-};
+    "They Will Know You (TWKY Branding) is a digital marketing partner in Dehiwala, Sri Lanka, building distinctive brands with modern brand communication.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([{ name: "About", path: "/about" }])}
+      />
       <PageHero
         eyebrow="About TWKY"
         title="Setting a higher standard in modern brand communication."
@@ -35,7 +42,6 @@ export default function AboutPage() {
               alt="They Will Know You"
               width={280}
               height={280}
-              unoptimized
               className="h-40 w-40 object-contain sm:h-56 sm:w-56"
             />
           </div>

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structuredData";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import GrowthPipeline from "@/components/GrowthPipeline";
@@ -6,11 +9,12 @@ import Card from "@/components/Card";
 import LinkCard from "@/components/LinkCard";
 import { WHAT_WE_DO } from "@/lib/whatWeDo";
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata: Metadata = pageMetadata({
+  title: "Digital Marketing Services in Sri Lanka",
   description:
-    "End-to-end execution, plus everything beyond it — social media management, content strategy, brand positioning, paid media, and digital marketing consultation.",
-};
+    "Social media management, content strategy, brand positioning, paid media and digital marketing consultation — end-to-end execution for Sri Lankan brands.",
+  path: "/services",
+});
 
 const SUBPAGES = [
   {
@@ -36,6 +40,9 @@ const SUBPAGES = [
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Services", path: "/services" }])}
+      />
       <PageHero
         eyebrow="Services"
         title="End-to-end execution. Plus everything beyond it."

@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, serviceSchema } from "@/lib/structuredData";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 
-export const metadata: Metadata = {
-  title: "Advanced Consulting",
+export const metadata: Metadata = pageMetadata({
+  title: "Brand Strategy & Marketing Consulting",
   description:
-    "Strategic advisory on audience clarity, brand positioning, and content direction for brands navigating complex digital landscapes.",
-};
+    "Strategic advisory on audience clarity, brand positioning and content direction for brands navigating complex digital landscapes.",
+  path: "/services/advanced-consulting",
+});
 
 const ADVISORY_PILLARS = [
   {
@@ -48,6 +52,17 @@ const listItemClasses =
 export default function AdvancedConsultingPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          breadcrumbSchema([{ name: "Services", path: "/services" }, { name: "Advanced Consulting", path: "/services/advanced-consulting" }]),
+          serviceSchema({
+            name: "Brand Strategy & Marketing Consulting",
+            serviceType: "Marketing consulting",
+            description: metadata.description as string,
+            path: "/services/advanced-consulting",
+          }),
+        ]}
+      />
       <PageHero
         eyebrow="Services / Advanced Consulting"
         title="Strategic Advisory & Brand Positioning"

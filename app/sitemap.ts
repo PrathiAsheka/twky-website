@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/structuredData";
 
-const BASE_URL = "https://theywillknowyou.com";
-
+// lastModified is intentionally omitted: stamping every URL with the build
+// time tells Google nothing and teaches it to ignore the field. Add a real
+// date per route here when a page's content actually changes.
 const ROUTES = [
   "/about",
   "/about/leadership",
@@ -15,18 +17,14 @@ const ROUTES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-
   return [
     {
-      url: BASE_URL,
-      lastModified,
+      url: SITE_URL,
       changeFrequency: "monthly",
       priority: 1.0,
     },
     ...ROUTES.map((route) => ({
-      url: `${BASE_URL}${route}`,
-      lastModified,
+      url: `${SITE_URL}${route}`,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),

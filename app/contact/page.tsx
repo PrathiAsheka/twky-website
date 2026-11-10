@@ -1,18 +1,26 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structuredData";
 import { Mail, MapPin, Phone } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
-import { CONTACT_INFO } from "@/lib/navigation";
+import { toSriLankaE164, CONTACT_INFO } from "@/lib/navigation";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description: "Let's Build Your Growth System.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Us — Book a Strategy Audit",
+  description:
+    "Book a free strategy audit with TWKY. Call 070 605 0123, email cs@theywillknowyou.com, or visit us at 71B Dutugemunu Street, Kalubowila, Dehiwala.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Contact", path: "/contact" }])}
+      />
       <PageHero
         eyebrow="Contact"
         title="Let's Build Your Growth System."
@@ -41,7 +49,7 @@ export default function ContactPage() {
                     <span>
                       {line.name}:{" "}
                       <a
-                        href={`tel:${line.number.replace(/\s+/g, "")}`}
+                        href={`tel:${toSriLankaE164(line.number)}`}
                         className="transition-colors hover:text-white"
                       >
                         {line.number}

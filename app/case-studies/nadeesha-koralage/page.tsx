@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structuredData";
 import Image from "next/image";
 import { Clock, CircleCheck, MessageCircle, TrendingUp } from "lucide-react";
 import PageHero from "@/components/PageHero";
@@ -6,11 +9,12 @@ import Section from "@/components/Section";
 import StatGrid from "@/components/StatGrid";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
-export const metadata: Metadata = {
-  title: "Nadeesha Koralage Case Study",
+export const metadata: Metadata = pageMetadata({
+  title: "Nadeesha Koralage — Personal Brand Growth",
   description:
-    "Authority Driven Personal Brand — full ecosystem social media growth focused on authority, reach, and consistency.",
-};
+    "How we built an authority-driven personal brand for Nadeesha Koralage with full-ecosystem social media growth focused on reach and consistency.",
+  path: "/case-studies/nadeesha-koralage",
+});
 
 const iconClass = "h-6 w-6";
 
@@ -25,6 +29,9 @@ const GROWTH_PRINCIPLES = [
 export default function NadeeshaKoralagePage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Case Studies", path: "/case-studies" }, { name: "Nadeesha Koralage", path: "/case-studies/nadeesha-koralage" }])}
+      />
       <PageHero
         eyebrow="Case Study / Education & Personal Brands"
         title="Nadeesha Koralage"
@@ -39,7 +46,6 @@ export default function NadeeshaKoralagePage() {
               alt="Nadeesha Koralage"
               width={800}
               height={1426}
-              unoptimized
               className="h-auto w-full object-contain"
             />
           </div>

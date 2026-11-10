@@ -25,6 +25,18 @@ const item: Variants = {
   },
 };
 
+// The H1 and intro paragraph slide in but are never hidden: elements that
+// start at opacity 0 are skipped as Largest Contentful Paint candidates until
+// they fade in, which pushed LCP to ~4s behind the preloader. A transform-only
+// entrance keeps the motion while letting the text paint immediately.
+const textItem: Variants = {
+  hidden: { y: 24 },
+  show: {
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 const CLIENTS = [
   "Nadeesha Koralage",
   "Island Life Hotels",
@@ -64,11 +76,11 @@ export default function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.3em] text-white/70 backdrop-blur-md"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
-              Digital Growth Partner
+              Digital Marketing Agency · Sri Lanka
             </motion.span>
 
             <motion.h1
-              variants={item}
+              variants={textItem}
               className="mt-8 max-w-2xl text-[clamp(2.75rem,5vw,5.5rem)] leading-[0.98] tracking-tight text-white"
             >
               <span className="block font-bold">
@@ -80,7 +92,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              variants={item}
+              variants={textItem}
               className="mt-8 max-w-md text-base leading-relaxed text-white/60 sm:text-lg"
             >
               Turning attention into trust and trust into measurable growth.

@@ -119,7 +119,6 @@ export default function ConnectClient() {
               alt="They Will Know You"
               width={112}
               height={112}
-              unoptimized
               className="h-16 w-16 object-contain"
             />
             <h1 className="mt-6 text-2xl font-bold tracking-tight text-white">

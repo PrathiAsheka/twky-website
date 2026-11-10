@@ -1,14 +1,18 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structuredData";
 import PageHero from "@/components/PageHero";
 import Section from "@/components/Section";
 import Card from "@/components/Card";
 
-export const metadata: Metadata = {
-  title: "Case Studies",
+export const metadata: Metadata = pageMetadata({
+  title: "Digital Marketing Case Studies",
   description:
-    "We partner with ambitious brands across diverse sectors, each with a unique story and a shared goal of meaningful digital growth.",
-};
+    "Real results from the brands we grow: social media, content and paid media case studies from our digital marketing work in Sri Lanka.",
+  path: "/case-studies",
+});
 
 const SECTORS = [
   {
@@ -43,6 +47,9 @@ const FEATURED = [
 export default function CaseStudiesPage() {
   return (
     <>
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Case Studies", path: "/case-studies" }])}
+      />
       <PageHero
         eyebrow="Case Studies"
         title="Who We Work With"
